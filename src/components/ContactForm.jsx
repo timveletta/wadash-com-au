@@ -29,7 +29,7 @@ export default function Contact() {
 
 	return (
 		<form
-			className="grid grid-cols-1 md:grid-cols-3 auto-rows-min gap-4 justify-start"
+			className="grid grid-cols-1 lg:grid-cols-3 auto-rows-min gap-4 justify-start"
 			name="contact"
 			onSubmit={onSubmit}
 		>
@@ -73,7 +73,7 @@ export default function Contact() {
 					className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
 				/>
 			</div>
-			<div class="col-span-3">
+			<div class="lg:col-span-3">
 				<label className="font-bold text-secondary" htmlFor="subject">
 					Subject
 				</label>
@@ -86,7 +86,7 @@ export default function Contact() {
 					className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
 				/>
 			</div>
-			<div class="col-span-3">
+			<div class="lg:col-span-3">
 				<label className="font-bold text-secondary" htmlFor="message">
 					Message
 				</label>

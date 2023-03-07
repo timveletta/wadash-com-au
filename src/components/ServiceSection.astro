@@ -2,14 +2,17 @@
 export interface Props {
 	title: string;
 	description: string;
-	icon?: string;
 }
 
-const { title, description, icon } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <div>
-	<div class="bg-primary w-14 h-14 rounded-2xl fill-white mb-4">{icon}</div>
+	<div
+		class="bg-primary w-14 h-14 rounded-2xl fill-white mb-4 flex justify-center items-center p-2"
+	>
+		<slot />
+	</div>
 	<h2 class="mb-4 text-2xl text-black font-bold">{title}</h2>
 	<p class="text-secondary leading-relaxed">{description}</p>
 </div>
