@@ -21,9 +21,9 @@ export default function Contact() {
 
 	if (formSubmitted)
 		return (
-			<p className="text-primary text-sans font-bold tracking-wide text-2xl px-10 text-center">
-				Thank you for getting in contact, I will get back to you at the earliest
-				possible convenience.
+			<p className="text-secondary font-bold tracking-wide text-2xl px-10 text-center">
+				Thank you for getting in contact, we will get back to you at the
+				earliest possible convenience.
 			</p>
 		);
 
