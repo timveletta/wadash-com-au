@@ -2,7 +2,7 @@ import mail from '@sendgrid/mail';
 mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const msg = {
-	to: 'timothy.veletta@gmail.com', // Change to your recipient
+	to: 'contact@wadash.com.au', // Change to your recipient
 	from: 'contact@em3447.wadash.com.au', // Change to your verified sender
 	subject: 'WADash.com.au Contact Form Submission',
 };
