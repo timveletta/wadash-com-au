@@ -12,6 +12,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://wadash.com.au',
 	integrations: [tailwind(), react()],
 	output: 'static',
 	adapter: vercel(),
