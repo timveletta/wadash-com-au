@@ -3,7 +3,7 @@ mail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const msg = {
 	to: 'timothy.veletta@gmail.com', // Change to your recipient
-	from: 'contact@em3617.timveletta.com', // Change to your verified sender
+	from: 'contact@em3447.wadash.com.au', // Change to your verified sender
 	subject: 'WADash.com.au Contact Form Submission',
 };
 
