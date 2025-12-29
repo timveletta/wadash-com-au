@@ -10,10 +10,12 @@ import vercel from '@astrojs/vercel/static';
 // https://astro.build/config
 import react from '@astrojs/react';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://wadash.com.au',
-	integrations: [tailwind(), react()],
-	output: 'static',
-	adapter: vercel(),
+    site: 'https://wadash.com.au',
+    integrations: [tailwind(), react(), mdx()],
+    output: 'static',
+    adapter: vercel(),
 });

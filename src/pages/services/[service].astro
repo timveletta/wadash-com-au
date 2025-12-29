@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import { getCollection } from "astro:content";
+export const getStaticPaths = (async () => {
+	const services = await getCollection('services')
+
+	console.log(services)
+
+	return services.map(service => ({
+		params: { service: service.id },
+		props: {service}
+	}))
+}) satisfies GetStaticPaths;
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+
+<h1>{service.data.title}</h1>
+
+<Content/>
