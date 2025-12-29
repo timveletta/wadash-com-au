@@ -3,6 +3,38 @@ export interface Props {
 	title: string;
 }
 
+const seoDataObject = {
+		"@context": "https://schema.org",
+		"@type": "Plumber",
+		"name": "WA Dash Plumbing & Gas",
+		"url": "https://www.wadash.com.au",
+		"telephone": "+61402246252",
+		"priceRange": "$$",
+		"areaServed": {
+			"@type": "AdministrativeArea",
+			"name": "Perth, Western Australia"
+		},
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Perth",
+			"addressRegion": "WA",
+			"addressCountry": "AU"
+		},
+		"sameAs": [
+			"https://www.facebook.com/wadashplumbingandgas",
+			"https://www.instagram.com/wa_dash_plumbing_and_gas/",
+			"https://www.linkedin.com/company/wa-dash-plumbing-and-gas/"
+		],
+		"openingHoursSpecification": [
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+			"opens": "08:00",
+			"closes": "17:00"
+		}
+		]
+		};
+
 const { title } = Astro.props;
 ---
 
@@ -16,7 +48,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<meta
 			name="description"
-			content="We are WA locally owned and operated, servicing all parts of Perth and surrounding areas."
+			content="Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today."
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,11 +63,7 @@ const { title } = Astro.props;
 				href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
 			/>
 		</noscript>
-		<script
-			defer
-			data-domain="wadash.com.au"
-			src="https://plausible.io/js/script.js"
-		></script>
+		<script type="application/ld+json" set:html={JSON.stringify(seoDataObject)} />
 	</head>
 	<body>
 		<slot />

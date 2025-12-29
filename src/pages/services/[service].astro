@@ -2,6 +2,9 @@
 import type { GetStaticPaths } from "astro";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
+
+import Layout from '../../layouts/Layout.astro';
+
 export const getStaticPaths = (async () => {
 	const services = await getCollection('services')
 
@@ -17,6 +20,7 @@ const { service } = Astro.props;
 const { Content } = await render(service);
 ---
 
-<h1>{service.data.title}</h1>
 
-<Content/>
+<Layout title={`${service.data.title} - WA Dash Plumbing and Gas`}>
+	<Content/>
+</Layout>
