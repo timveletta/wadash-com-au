@@ -12,10 +12,12 @@ import react from '@astrojs/react';
 
 import mdx from '@astrojs/mdx';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://wadash.com.au',
-    integrations: [tailwind(), react(), mdx()],
+    integrations: [tailwind(), react(), mdx(), sitemap()],
     output: 'static',
     adapter: vercel(),
 });
