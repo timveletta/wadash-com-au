@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "@fontsource/open-sans";
+@import "@fontsource/montserrat";
+
+@utility container {
+  margin-inline: auto;
+}
+
+@theme {
+  --color-primary: #46b455;
+  --color-secondary: #4d4d4d;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-montserrat: "Montserrat";
+}
