@@ -63,7 +63,7 @@ export default function Contact() {
           type="text"
           name="name"
           required
-          className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
         />
       </div>
       <div>
@@ -76,7 +76,7 @@ export default function Contact() {
           type="tel"
           name="phoneNumber"
           required
-          className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
         />
       </div>
       <div>
@@ -90,7 +90,7 @@ export default function Contact() {
           name="postCode"
           placeholder="6000"
           required
-          className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
         />
       </div>
       <div className="lg:col-span-3">
@@ -103,7 +103,7 @@ export default function Contact() {
           type="text"
           name="subject"
           required
-          className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
         />
       </div>
       <div className="lg:col-span-3">
@@ -115,14 +115,14 @@ export default function Contact() {
           id="message"
           required
           name="message"
-          className="shadow appearance-none border border-secondary border-opacity-60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline leading-relaxed mt-1 h-48"
+          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline leading-relaxed mt-1 h-48"
           placeholder="A descriptive message helps us diagnose the issue quicker so we can give you more information when we contact you. Don't forget to include brands, model names or anything you think might be relevant."
         />
       </div>
       <div className="flex items-baseline">
         <button
           type="submit"
-          className="bg-primary text-white font-bold px-6 py-4 rounded hover:bg-opacity-75"
+          className="bg-primary text-white font-bold px-6 py-4 rounded hover:bg-primary/75"
         >
           Send Message
         </button>
