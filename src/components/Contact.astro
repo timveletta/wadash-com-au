@@ -2,35 +2,49 @@
 import ContactForm from "./ContactForm.jsx";
 ---
 
-<div class="bg-gray">
+<div class="relative bg-white pt-32 overflow-x-hidden">
   <div
-    class="grid lg:grid-cols-[1fr_2fr] grid-cols-1 py-32 sm:py-16 lg:py-48 gap-12 container"
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-32 bg-primary rounded-t-[100%]"
   >
-    <div class="text-black">
-      <h1 id="contact" class="text-5xl font-black lg:row-span-3 mb-8">
-        Contact Us
-      </h1>
-      <h2 class="font-bold text-lg">Office Hours</h2>
-      <p class="text-lg mb-8">Monday - Friday 8am - 4pm</p>
+  </div>
 
-      <h2 class="font-bold text-lg mb-8">24/7 Emergency Call Out</h2>
-      <ul class="font-bold text-lg mb-8">
-        <li>PL9842</li>
-        <li>GF16052</li>
-      </ul>
+  <div class="relative z-10 bg-primary px-4 py-16">
+    <div
+      class="bg-white p-12 rounded-lg container flex flex-col md:flex-row gap-8"
+    >
+      <div class="flex-1">
+        <h1
+          id="contact"
+          class="text-4xl text-montserrat text-tertiary font-bold mb-4"
+        >
+          Contact Us
+        </h1>
+        <p class="text-lg text-tertiary mb-8">
+          For plumbing and gas in a dash, please contact our office during
+          business hours: Monday to Friday, from 7AM to 4PM. In case of an
+          emergency, we are available on call 24/7.
+        </p>
 
-      <a
-        href="/terms-and-conditions.pdf"
-        target="_blank"
-        class="text-lg text-primary underline">Terms and Conditions</a
-      >
+        <ul class="font-bold text-tertiary text-lg mb-8">
+          <li>PL9842</li>
+          <li>GF16052</li>
+        </ul>
 
-      <h2 class="font-bold text-lg mt-8">Email Address</h2>
-      <a
-        href="mailto:admin@wadash.com.au"
-        class="text-lg text-primary underline">admin@wadash.com.au</a
-      >
+        <a
+          href="/terms-and-conditions.pdf"
+          target="_blank"
+          class="text-lg text-primary underline">Terms and Conditions</a
+        >
+
+        <h2 class="font-bold text-lg mt-8">Email Address</h2>
+        <a
+          href="mailto:admin@wadash.com.au"
+          class="text-lg text-primary underline">admin@wadash.com.au</a
+        >
+      </div>
+      <div class="flex-2">
+        <ContactForm client:visible />
+      </div>
     </div>
-    <ContactForm client:visible />
   </div>
 </div>

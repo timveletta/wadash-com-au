@@ -24,7 +24,7 @@ export function Navbar({ services }) {
   ];
 
   return (
-    <Disclosure as="nav" className="relative">
+    <Disclosure as="nav" className="relative bg-gray-200">
       <div className="container flex justify-between py-8">
         <a href="/">
           <img

@@ -1,85 +1,86 @@
 ---
-import '../styles/global.css'
-import { Navbar } from '../components/navigation/Navbar.jsx';
+import "../styles/global.css";
+import { Navbar } from "../components/navigation/Navbar.jsx";
 
-
-import { getCollection } from "astro:content"
+import { getCollection } from "astro:content";
 
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const seoDataObject = {
-		"@context": "https://schema.org",
-		"@type": "Plumber",
-		"name": "WA Dash Plumbing & Gas",
-		"url": "https://www.wadash.com.au",
-		"telephone": "+61402246252",
-		"priceRange": "$$",
-		"areaServed": {
-			"@type": "AdministrativeArea",
-			"name": "Perth, Western Australia"
-		},
-		"image": [
-			"https://www.wadash.com.au/logo.png",
-			"https://www.wadash.com.au/hero.webp"
-		],
-		"address": {
-			"@type": "PostalAddress",
-			"addressLocality": "Perth",
-			"addressRegion": "WA",
-			"addressCountry": "AU"
-		},
-		"sameAs": [
-			"https://www.facebook.com/wadashplumbingandgas",
-			"https://www.instagram.com/wa_dash_plumbing_and_gas/",
-			"https://www.linkedin.com/company/wa-dash-plumbing-and-gas/"
-		],
-		"openingHoursSpecification": [
-		{
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-			"opens": "08:00",
-			"closes": "17:00"
-		}
-		]
-		};
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  name: "WA Dash Plumbing & Gas",
+  url: "https://www.wadash.com.au",
+  telephone: "+61402246252",
+  priceRange: "$$",
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Perth, Western Australia",
+  },
+  image: [
+    "https://www.wadash.com.au/logo.png",
+    "https://www.wadash.com.au/hero.webp",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Perth",
+    addressRegion: "WA",
+    addressCountry: "AU",
+  },
+  sameAs: [
+    "https://www.facebook.com/wadashplumbingandgas",
+    "https://www.instagram.com/wa_dash_plumbing_and_gas/",
+    "https://www.linkedin.com/company/wa-dash-plumbing-and-gas/",
+  ],
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  ],
+};
 
 const { title } = Astro.props;
 
-const services = await getCollection('services')
-
+const services = await getCollection("services");
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta
-			name="description"
-			content="Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today."
-		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="preload"
-			as="style"
-			href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
-		/>
-		<noscript>
-			<link
-				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
-			/>
-		</noscript>
-		<script type="application/ld+json" set:html={JSON.stringify(seoDataObject)} />
-	</head>
-	<body class="bg-gray-200">
-		<Navbar client:load services={services}/>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta
+      name="description"
+      content="Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
+      />
+    </noscript>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(seoDataObject)}
+    />
+  </head>
+  <body>
+    <Navbar client:load services={services} />
+    <slot />
+  </body>
 </html>
