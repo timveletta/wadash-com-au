@@ -1,48 +1,25 @@
 ---
+import { PhoneIcon } from "@heroicons/react/16/solid";
 ---
 
 <div class="relative">
-	<div class="container pt-8">
-		<img
-			src="/logo.png"
-			width="192px"
-			height="54px"
-			alt="WA Dash Logo"
-			class="w-48"
-		/>
-	</div>
-	<div class="py-4 sm:py-16 lg:py-48 lg:pr-8">
-		<div class="container">
-			<div class="flex">
-				<div class="my-32 lg:w-1/2 pr-8">
-					<h1>
-						<span
-							class="md:text-10xl text-8xl font-black text-primary uppercase tracking-wide"
-						>
-							WA Dash {" "}
-						</span>
-						<span class="md:text-7xl text-5xl font-black text-black uppercase">
-							Perth Plumbing & Gas Specialists
-						</span>
-					</h1>
-					<p class="text-2xl leading-relaxed text-secondary mt-8 font-montserrat">
-						We provide reliable plumbing and gas fitting services 
-  across Perth, including emergency repairs, hot water systems, blocked drains 
-  and general maintenance for homes and businesses.
-					</p>
-				</div>
+	<div class="container py-4 sm:py-16 lg:py-48 lg:pr-8 flex justify-center">
+		<div class="bg-white p-12 rounded-2xl max-w-2xl">
+			<h1 class="text-montserrat text-5xl">Plumbing and Gas,</h1>
+			<h2 class="text-montserrat text-5xl text-primary font-extrabold">in a Dash.</h2>
+			<p class="text-lg leading-relaxed text-secondary py-6 font-sans">
+				Locally owned and operated in WA.<br/>
+Got a plumbing or gas emergency? <br/>
+We’re available 24/7. Call us now!
+			</p>
+			<div class="flex gap-2 mt-4">
+				<a class="px-6 py-3 font-bold bg-primary rounded-full text-white flex" href="tel:+61402246252"><PhoneIcon className="size-6 mr-2"/> 0402 246 252</a>
+				<a class="px-6 py-3 font-bold bg-tertiary rounded-full text-white flex" href="https://book.servicem8.com/request_service_online_booking?strVendorUUID=006d09d9-1dc2-4bd8-832e-5962ab602efb&strPreviewServiceUUID=2232b257-4bae-487e-afea-23a781b098fb#2232b257-4bae-487e-afea-23a781b098fb">Book Now</a>
 			</div>
 		</div>
-	</div>
-	<div
-		class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 md:block hidden"
-	>
-		<img
-			src="/hero.webp"
-			alt="WA Dash Hero Image"
-			class="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full lg:clip-path-hero"
-		/>
+
+
 	</div>
 </div>
 
-<!-- https://book.servicem8.com/request_service_online_booking?strVendorUUID=006d09d9-1dc2-4bd8-832e-5962ab602efb&strPreviewServiceUUID=2232b257-4bae-487e-afea-23a781b098fb#2232b257-4bae-487e-afea-23a781b098fb -->
+<!--  -->
