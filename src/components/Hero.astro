@@ -3,23 +3,42 @@ import { PhoneIcon } from "@heroicons/react/16/solid";
 ---
 
 <div class="relative">
-	<div class="container py-4 sm:py-16 lg:py-48 lg:pr-8 flex justify-center">
-		<div class="bg-white p-12 rounded-2xl max-w-2xl">
-			<h1 class="text-montserrat text-5xl">Plumbing and Gas,</h1>
-			<h2 class="text-montserrat text-5xl text-primary font-extrabold">in a Dash.</h2>
-			<p class="text-lg leading-relaxed text-secondary py-6 font-sans">
-				Locally owned and operated in WA.<br/>
-Got a plumbing or gas emergency? <br/>
-We’re available 24/7. Call us now!
-			</p>
-			<div class="flex gap-2 mt-4">
-				<a class="px-6 py-3 font-bold bg-primary rounded-full text-white flex" href="tel:+61402246252"><PhoneIcon className="size-6 mr-2"/> 0402 246 252</a>
-				<a class="px-6 py-3 font-bold bg-tertiary rounded-full text-white flex" href="https://book.servicem8.com/request_service_online_booking?strVendorUUID=006d09d9-1dc2-4bd8-832e-5962ab602efb&strPreviewServiceUUID=2232b257-4bae-487e-afea-23a781b098fb#2232b257-4bae-487e-afea-23a781b098fb">Book Now</a>
-			</div>
-		</div>
+  <div class="md:pb-16 flex justify-center items-center md:flex-row flex-col">
+    <div
+      class="bg-white p-10 rounded-2xl max-w-2xl min-w-md lg:-mr-24 md:-mr-36 md:mb-0 -mb-56"
+    >
+      <h1 class="text-montserrat lg:text-5xl text-4xl">Plumbing and Gas</h1>
+      <h2
+        class="text-montserrat lg:text-5xl text-4xl text-primary font-extrabold"
+      >
+        in a Dash.
+      </h2>
+      <p class="text-lg leading-relaxed text-secondary py-6 font-sans">
+        Locally owned and operated in WA.<br />
+        Got a plumbing or gas emergency? <br />
+        We’re available 24/7. Call us now!
+      </p>
+      <div class="flex gap-2 mt-4">
+        <a
+          class="px-6 py-3 font-bold bg-primary rounded-full text-white flex"
+          href="tel:+61402246252"
+          ><PhoneIcon className="size-6 mr-2" /> 0402 246 252</a
+        >
+        <a
+          class="px-6 py-3 font-bold bg-tertiary rounded-full text-white flex"
+          href="https://book.servicem8.com/request_service_online_booking?strVendorUUID=006d09d9-1dc2-4bd8-832e-5962ab602efb&strPreviewServiceUUID=2232b257-4bae-487e-afea-23a781b098fb#2232b257-4bae-487e-afea-23a781b098fb"
+          >Book Now</a
+        >
+      </div>
+    </div>
 
-
-	</div>
+    <div class="md:max-w-3xl -z-10 lg:-ml-24 md:-ml-36">
+      <img
+        src="/hero.webp"
+        class="md:rounded-2xl object-cover aspect-3/2 h-150 w-auto"
+      />
+    </div>
+  </div>
 </div>
 
 <!--  -->
