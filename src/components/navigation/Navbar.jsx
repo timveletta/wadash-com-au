@@ -12,14 +12,14 @@ import {
 export function Navbar({ services }) {
   const navItems = [
     { label: "Home", to: "/" },
-    { label: "About Us", to: "/about" },
-    {
-      label: "Services",
-      items: services.map((service) => ({
-        label: service.data.title,
-        to: `/services/${service.id}`,
-      })),
-    },
+    // { label: "About Us", to: "/about" },
+    // {
+    //   label: "Services",
+    //   items: services.map((service) => ({
+    //     label: service.data.title,
+    //     to: `/services/${service.id}`,
+    //   })),
+    // },
     { label: "Contact", to: "/#contact" },
   ];
 

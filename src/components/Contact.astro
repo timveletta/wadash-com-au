@@ -1,34 +1,36 @@
 ---
-import ContactForm from './ContactForm.jsx';
+import ContactForm from "./ContactForm.jsx";
 ---
 
 <div class="bg-gray">
-	<div
-		class="grid lg:grid-cols-[1fr_2fr] grid-cols-1 py-32 sm:py-16 lg:py-48 gap-12 container"
-	>
-		<div class="text-black">
-			<h1 class="text-5xl font-black lg:row-span-3 mb-8">Contact Us</h1>
-			<h2 class="font-bold text-lg">Office Hours</h2>
-			<p class="text-lg mb-8">Monday - Friday 8am - 4pm</p>
+  <div
+    class="grid lg:grid-cols-[1fr_2fr] grid-cols-1 py-32 sm:py-16 lg:py-48 gap-12 container"
+  >
+    <div class="text-black">
+      <h1 id="contact" class="text-5xl font-black lg:row-span-3 mb-8">
+        Contact Us
+      </h1>
+      <h2 class="font-bold text-lg">Office Hours</h2>
+      <p class="text-lg mb-8">Monday - Friday 8am - 4pm</p>
 
-			<h2 class="font-bold text-lg mb-8">24/7 Emergency Call Out</h2>
-			<ul class="font-bold text-lg mb-8">
-				<li>PL9842</li>
-				<li>GF16052</li>
-			</ul>
+      <h2 class="font-bold text-lg mb-8">24/7 Emergency Call Out</h2>
+      <ul class="font-bold text-lg mb-8">
+        <li>PL9842</li>
+        <li>GF16052</li>
+      </ul>
 
-			<a
-				href="/terms-and-conditions.pdf"
-				target="_blank"
-				class="text-lg text-primary underline">Terms and Conditions</a
-			>
+      <a
+        href="/terms-and-conditions.pdf"
+        target="_blank"
+        class="text-lg text-primary underline">Terms and Conditions</a
+      >
 
-			<h2 class="font-bold text-lg mt-8">Email Address</h2>
-			<a
-				href="mailto:admin@wadash.com.au"
-				class="text-lg text-primary underline">admin@wadash.com.au</a
-			>
-		</div>
-		<ContactForm client:visible />
-	</div>
+      <h2 class="font-bold text-lg mt-8">Email Address</h2>
+      <a
+        href="mailto:admin@wadash.com.au"
+        class="text-lg text-primary underline">admin@wadash.com.au</a
+      >
+    </div>
+    <ContactForm client:visible />
+  </div>
 </div>
