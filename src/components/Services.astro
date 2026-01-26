@@ -3,7 +3,7 @@ import { PhoneIcon } from "@heroicons/react/24/outline";
 import ServiceSection from "./ServiceSection.astro";
 ---
 
-<div class="px-12 py-16 bg-white">
+<div class="lg:px-12 px-2 py-16 bg-white">
   <div class="container">
     <div class="flex flex-col md:flex-row gap-2 justify-between py-12">
       <div class="flex-1 flex flex-col gap-2">
@@ -29,33 +29,43 @@ import ServiceSection from "./ServiceSection.astro";
         >
       </div>
     </div>
-    <div class="grid lg:grid-cols-2 grid-cols-1 gap-8">
+    <div class="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
       <ServiceSection
-        title="Leaking Taps and Pipes"
-        description="Sink tap install, repair and servicing. Identification, locating and repair of leaking pipes."
+        title="Leaking Taps and Toilets"
+        description="Sink taps and toilet installation, servicing and replacement."
         price="195"
       >
-        <img src="Plumbing.jpeg" class="object-cover h-full" />
+        <img
+          src="leaking-tap.jpg"
+          class="object-cover h-full w-full md:aspect-2/3 aspect-square"
+        />
       </ServiceSection>
       <ServiceSection
-        title="Bathroom and Toilet"
-        description="Sink, shower, bath and toilet installation, repair and servicing."
-        ><img src="Plumbing.jpeg" class="object-cover h-full" />
-      </ServiceSection>
-      <ServiceSection
-        title="Hot Water"
-        description="Gas, electric and solar hot water system install, repair and servicing."
-        ><img src="Plumbing.jpeg" class="object-cover h-full" />
+        title="Hot Water Systems"
+        description="Gas, electric and heat pump hot water systems."
+        price="950"
+        ><img
+          src="hot-water-systems.jpg"
+          class="object-cover h-full w-full md:aspect-2/3 aspect-square"
+        />
       </ServiceSection>
       <ServiceSection
         title="Blocked Drains"
-        description="Residential and industrial, pipe inspection and relining, drain installation, cleaning and repairs."
-        ><img src="Plumbing.jpeg" class="object-cover h-full" />
+        description="Pipe inspections, unblocking and repairs."
+        price="165"
+        ><img
+          src="blocked-drain.jpg"
+          class="object-cover h-full w-full md:aspect-2/3 aspect-square"
+        />
       </ServiceSection>
       <ServiceSection
-        title="Gas Fitting and Servicing"
-        description="Cooktop, stove, BBQ, gas bayonet, hot water installation and repairs."
-        ><img src="Plumbing.jpeg" class="object-cover h-full" />
+        title="Gas works"
+        description="Installation and maintenance of gas appliances and lines."
+        price="225"
+        ><img
+          src="gas.jpg"
+          class="object-cover h-full w-full md:aspect-2/3 aspect-square"
+        />
       </ServiceSection>
     </div>
   </div>
