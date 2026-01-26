@@ -9,6 +9,7 @@
 
 @utility container {
   margin-inline: auto;
+  max-width: 1024px;
 }
 
 @theme {

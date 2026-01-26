@@ -1,18 +1,21 @@
 ---
 export interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, price } = Astro.props;
 ---
 
-<div>
-	<div
-		class="bg-primary w-14 h-14 rounded-2xl fill-white mb-4 flex justify-center items-center p-2"
-	>
-		<slot />
-	</div>
-	<h2 class="mb-4 text-2xl text-black font-bold">{title}</h2>
-	<p class="text-secondary leading-relaxed">{description}</p>
+<div class="bg-gray-100 hover:shadow-md rounded-md p-8 flex gap-4">
+  <div class="flex-2 flex flex-col justify-between">
+    <h2 class="mb-2 text-xl text-montserrat text-primary-dark font-bold">
+      {title}
+    </h2>
+    <p class="text-secondary leading-relaxed mb-2">{description}</p>
+    <p class="text-primary-dark text-montserrat font-thin">From ${price}</p>
+  </div>
+  <div class="flex-1 bg-gray-200 rounded-md overflow-clip">
+    <slot />
+  </div>
 </div>
