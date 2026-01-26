@@ -36,7 +36,7 @@ export function Navbar({ services }) {
           />
         </a>
 
-        <div className="sm:hidden">
+        {/* <div className="sm:hidden">
           <DisclosureButton className="group relative text-gray-400">
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
@@ -48,7 +48,7 @@ export function Navbar({ services }) {
               className="hidden size-6 group-data-open:block"
             />
           </DisclosureButton>
-        </div>
+        </div> */}
 
         <div className="hidden sm:block">
           <div className="flex space-x-6">
