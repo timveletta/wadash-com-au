@@ -1,4 +1,6 @@
 ---
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/solid";
+
 import ContactForm from "./ContactForm.jsx";
 ---
 
@@ -10,22 +12,19 @@ import ContactForm from "./ContactForm.jsx";
 
   <div class="relative z-10 bg-primary px-4 py-16">
     <div
-      class="bg-white p-12 rounded-lg container flex flex-col md:flex-row gap-8"
+      class="bg-white p-12 rounded-lg container flex items-center flex-col md:flex-row gap-8"
     >
       <div class="flex-1">
-        <h1
-          id="contact"
-          class="text-4xl text-montserrat text-tertiary font-bold mb-4"
-        >
-          Contact Us
+        <h1 class="text-4xl text-montserrat text-tertiary mb-4" id="contact">
+          <span class="font-bold">Contact</span> Us
         </h1>
-        <p class="text-lg text-tertiary mb-8">
+        <p class="text-lg text-tertiary mb-6 pr-12">
           For plumbing and gas in a dash, please contact our office during
           business hours: Monday to Friday, from 7AM to 4PM. In case of an
           emergency, we are available on call 24/7.
         </p>
 
-        <ul class="font-bold text-tertiary text-lg mb-8">
+        <ul class="font-bold text-tertiary text-lg mb-6">
           <li>PL9842</li>
           <li>GF16052</li>
         </ul>
@@ -36,13 +35,32 @@ import ContactForm from "./ContactForm.jsx";
           class="text-lg text-primary underline">Terms and Conditions</a
         >
 
-        <h2 class="font-bold text-lg mt-8">Email Address</h2>
-        <a
-          href="mailto:admin@wadash.com.au"
-          class="text-lg text-primary underline">admin@wadash.com.au</a
-        >
+        <div class="flex items-center gap-4 mt-6 mb-4">
+          <div class="rounded-lg bg-tertiary p-2">
+            <EnvelopeIcon className="size-8 text-white" />
+          </div>
+          <div>
+            <h2 class="font-bold text-tertiary text-lg">Email</h2>
+            <a href="mailto:admin@wadash.com.au" class="text-lg text-tertiary"
+              >admin@wadash.com.au</a
+            >
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <div class="rounded-lg bg-tertiary p-2">
+            <PhoneIcon className="size-8 text-white" />
+          </div>
+          <div>
+            <h2 class="font-bold text-tertiary text-lg">Phone</h2>
+            <a href="tel:+61402246252" class="text-lg text-tertiary"
+              >0402 246 252</a
+            >
+          </div>
+        </div>
       </div>
-      <div class="flex-2">
+
+      <div class="flex-1">
         <ContactForm client:visible />
       </div>
     </div>

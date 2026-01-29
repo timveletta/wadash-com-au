@@ -6,15 +6,14 @@ export default function Contact() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    const { name, phoneNumber, postCode, subject, message } = event.target;
+    const { name, phoneNumber, email, message } = event.target;
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         body: JSON.stringify({
           name: name.value,
           phoneNumber: phoneNumber.value,
-          postCode: postCode.value,
-          subject: subject.value,
+          email: email.value,
           message: message.value,
         }),
       });
@@ -48,14 +47,10 @@ export default function Contact() {
     );
 
   return (
-    <form
-      className="grid grid-cols-1 lg:grid-cols-3 auto-rows-min gap-4 justify-start"
-      name="contact"
-      onSubmit={onSubmit}
-    >
+    <form className="flex flex-col gap-4" name="contact" onSubmit={onSubmit}>
       <div>
         <label className="font-bold text-secondary" htmlFor="name">
-          Name
+          Your Name
         </label>
         <input
           aria-label="name"
@@ -63,9 +58,23 @@ export default function Contact() {
           type="text"
           name="name"
           required
-          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="bg-gray-100 appearance-none rounded-md w-full py-2 px-3 text-tertiary focus:outline-none focus:ring-2 focus:ring-primary mt-1"
         />
       </div>
+      <div>
+        <label className="font-bold text-secondary" htmlFor="email">
+          Email Address
+        </label>
+        <input
+          aria-label="email"
+          id="email"
+          type="email"
+          name="email"
+          required
+          className="bg-gray-100 appearance-none rounded-md w-full py-2 px-3 text-tertiary focus:outline-none focus:ring-2 focus:ring-primary mt-1"
+        />
+      </div>
+
       <div>
         <label className="font-bold text-secondary" htmlFor="phoneNumber">
           Phone Number
@@ -76,37 +85,11 @@ export default function Contact() {
           type="tel"
           name="phoneNumber"
           required
-          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
+          className="bg-gray-100 appearance-none rounded-md w-full py-2 px-3 text-tertiary focus:outline-none focus:ring-2 focus:ring-primary mt-1"
         />
       </div>
+
       <div>
-        <label className="font-bold text-secondary" htmlFor="postCode">
-          Post Code
-        </label>
-        <input
-          aria-label="postCode"
-          id="postCode"
-          type="text"
-          name="postCode"
-          placeholder="6000"
-          required
-          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
-        />
-      </div>
-      <div className="lg:col-span-3">
-        <label className="font-bold text-secondary" htmlFor="subject">
-          Subject
-        </label>
-        <input
-          aria-label="subject"
-          id="subject"
-          type="text"
-          name="subject"
-          required
-          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline mt-1"
-        />
-      </div>
-      <div className="lg:col-span-3">
         <label className="font-bold text-secondary" htmlFor="message">
           Message
         </label>
@@ -115,14 +98,14 @@ export default function Contact() {
           id="message"
           required
           name="message"
-          className="shadow appearance-none border border-secondary/60 rounded w-full py-3 px-4 text-black focus:outline-none focus:shadow-outline leading-relaxed mt-1 h-48"
+          className="bg-gray-100 appearance-none rounded-md w-full py-2 px-3 text-tertiary focus:outline-none focus:ring-2 focus:ring-primary mt-1 h-48"
           placeholder="A descriptive message helps us diagnose the issue quicker so we can give you more information when we contact you. Don't forget to include brands, model names or anything you think might be relevant."
         />
       </div>
       <div className="flex items-baseline">
         <button
           type="submit"
-          className="bg-primary text-white font-bold px-6 py-4 rounded hover:bg-primary/75"
+          className="bg-primary-dark text-white font-bold px-4 py-2 rounded-lg hover:bg-primary"
         >
           Send Message
         </button>
