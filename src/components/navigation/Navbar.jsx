@@ -55,7 +55,7 @@ export function Navbar({ services }) {
             {navItems.map((item) =>
               item.items ? (
                 <Menu as="div" key={item.label}>
-                  <MenuButton className="text-tertiary hover:text-primary uppercase font-medium">
+                  <MenuButton className="text-tertiary hover:text-primary hover:font-bold uppercase font-medium">
                     {item.label}
                   </MenuButton>
                   <MenuItems transition className="absolute transition">

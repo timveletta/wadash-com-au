@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
+
 import { Navbar } from "../components/navigation/Navbar.jsx";
+import Footer from "../components/Footer.astro";
 
 import { getCollection } from "astro:content";
 
@@ -82,5 +84,6 @@ const services = await getCollection("services");
   <body>
     <Navbar client:load services={services} />
     <slot />
+    <Footer/>
   </body>
 </html>
