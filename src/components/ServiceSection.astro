@@ -33,21 +33,9 @@ const {
       </h2>
       <p class="text-secondary leading-relaxed">{description}</p>
       {
-        bullets.length > 0 && (
-          <ul class="flex flex-col gap-1 mt-1">
-            {bullets.slice(0, 3).map((b) => (
-              <li class="flex items-start gap-2 text-secondary text-sm">
-                <span class="text-primary mt-0.5 flex-shrink-0">&#10003;</span>
-                {b}
-              </li>
-            ))}
-          </ul>
-        )
-      }
-      {
         price && (
           <div class="mt-auto pt-3">
-            <span class="inline-block bg-primary text-white text-sm font-semibold px-3 py-1 rounded-full">
+            <span class="inline-block text-primary-dark text-sm font-semibold">
               From ${price}
             </span>
           </div>
