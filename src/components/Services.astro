@@ -32,18 +32,20 @@ const services = await getCollection("services");
         >
       </div>
     </div>
-    <div class="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
-      {services.map((service) => (
-        <ServiceSection
-          title={service.data.title}
-          description={service.data.description ?? ""}
-          price={service.data.price}
-          href={`/services/${service.id}`}
-          bullets={service.data.bullets ?? []}
-          image={service.data.image}
-          alt={`${service.data.title} Perth`}
-        />
-      ))}
+    <div class="grid lg:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
+      {
+        services.map((service) => (
+          <ServiceSection
+            title={service.data.title}
+            description={service.data.description ?? ""}
+            price={service.data.price}
+            href={`/services/${service.id}`}
+            bullets={service.data.bullets ?? []}
+            image={service.data.image}
+            alt={`${service.data.title} Perth`}
+          />
+        ))
+      }
     </div>
   </div>
 </div>
