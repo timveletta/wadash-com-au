@@ -15,7 +15,7 @@ const seoDataObject = {
   "@context": "https://schema.org",
   "@type": "Plumber",
   name: "WA Dash Plumbing & Gas",
-  url: "https://www.wadash.com.au",
+  url: "https://wadash.com.au",
   telephone: "+61402246252",
   priceRange: "$$",
   areaServed: {
@@ -23,8 +23,8 @@ const seoDataObject = {
     name: "Perth, Western Australia",
   },
   image: [
-    "https://www.wadash.com.au/logo.png",
-    "https://www.wadash.com.au/hero.webp",
+    "https://wadash.com.au/logo.png",
+    "https://wadash.com.au/hero.webp",
   ],
   address: {
     "@type": "PostalAddress",
@@ -50,6 +50,8 @@ const seoDataObject = {
 const DEFAULT_DESCRIPTION = "Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today.";
 const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+
 const services = await getCollection("services");
 ---
 
@@ -62,11 +64,17 @@ const services = await getCollection("services");
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://www.wadash.com.au/hero.webp" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content="https://wadash.com.au/hero.webp" />
     <meta property="og:site_name" content="WA Dash Plumbing & Gas" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://wadash.com.au/hero.webp" />
     <script
       type="application/ld+json"
       set:html={JSON.stringify(seoDataObject)}

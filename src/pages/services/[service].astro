@@ -19,9 +19,39 @@ const { service } = Astro.props;
 const { Content } = await render(service);
 
 const { title, description, image, price, bullets = [] } = service.data;
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: title,
+  description,
+  provider: {
+    "@type": "Plumber",
+    name: "WA Dash Plumbing & Gas",
+    url: "https://wadash.com.au",
+    telephone: "+61402246252",
+  },
+  areaServed: {
+    "@type": "AdministrativeArea",
+    name: "Perth, Western Australia",
+  },
+  ...(price && {
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AUD",
+      price: price,
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        minPrice: price,
+        priceCurrency: "AUD",
+      },
+    },
+  }),
+};
 ---
 
 <Layout title={`${title} Perth – WA Dash Plumbing & Gas`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <main class="bg-gray-200">
     <!-- Hero -->
     <div class="relative bg-tertiary md:pb-48">
@@ -58,6 +88,8 @@ const { title, description, image, price, bullets = [] } = service.data;
               <img
                 src={`/${image}`}
                 alt={title}
+                width="900"
+                height="600"
                 class="md:rounded-2xl object-cover aspect-3/2 h-150 w-auto"
               />
             </div>
