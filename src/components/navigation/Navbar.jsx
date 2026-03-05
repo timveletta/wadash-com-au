@@ -12,7 +12,7 @@ import {
 export function Navbar({ services }) {
   const navItems = [
     { label: "Home", to: "/" },
-    // { label: "About Us", to: "/about" },
+    { label: "About Us", to: "/about" },
     // {
     //   label: "Services",
     //   items: services.map((service) => ({
@@ -25,7 +25,7 @@ export function Navbar({ services }) {
 
   return (
     <Disclosure as="nav" className="relative bg-gray-200">
-      <div className="container flex justify-between py-8">
+      <div className="container flex justify-between items-center py-4">
         <a href="/">
           <img
             src="/logo.png"
@@ -36,8 +36,8 @@ export function Navbar({ services }) {
           />
         </a>
 
-        {/* <div className="sm:hidden">
-          <DisclosureButton className="group relative text-gray-400">
+        <div className="sm:hidden">
+          <DisclosureButton className="group relative text-tertiary hover:text-primary p-1">
             <span className="sr-only">Open main menu</span>
             <Bars3Icon
               aria-hidden="true"
@@ -48,7 +48,7 @@ export function Navbar({ services }) {
               className="hidden size-6 group-data-open:block"
             />
           </DisclosureButton>
-        </div> */}
+        </div>
 
         <div className="hidden sm:block">
           <div className="flex space-x-6">
@@ -85,10 +85,19 @@ export function Navbar({ services }) {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
-        {navItems.map((item) => (
-          <DisclosureButton>{item.label}</DisclosureButton>
-        ))}
+      <DisclosurePanel className="sm:hidden border-t border-gray-300">
+        <div className="flex flex-col py-2">
+          {navItems.map((item) => (
+            <DisclosureButton
+              key={item.label}
+              as="a"
+              href={item.to}
+              className="px-4 py-3 text-tertiary hover:text-primary hover:bg-gray-300 uppercase font-medium text-sm"
+            >
+              {item.label}
+            </DisclosureButton>
+          ))}
+        </div>
       </DisclosurePanel>
     </Disclosure>
   );
