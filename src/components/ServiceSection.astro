@@ -2,22 +2,38 @@
 export interface Props {
   title: string;
   description: string;
+  price?: string;
+  bullets?: string[];
 }
 
-const { title, description, price } = Astro.props;
+const { title, description, price, bullets = [] } = Astro.props;
 ---
 
-<div class="bg-gray-100 hover:shadow-md rounded-md p-8 flex gap-4">
-  <div class="md:flex-2 flex-1 flex flex-col justify-between">
-    <h2 class="mb-2 text-xl text-montserrat text-primary-dark font-bold">
-      {title}
-    </h2>
-    <p class="text-secondary leading-relaxed mb-2">{description}</p>
-    <p class="text-primary-dark text-montserrat font-thin">
-      {price && `From $${price}`}
-    </p>
-  </div>
-  <div class="flex-1 bg-gray-200 rounded-md overflow-clip">
-    <slot />
+<div class="bg-gray-100 hover:shadow-md rounded-md overflow-hidden flex flex-col border-l-4 border-primary">
+  <div class="flex gap-4 flex-1 p-8">
+    <div class="md:flex-2 flex-1 flex flex-col gap-3">
+      <h2 class="text-xl text-montserrat text-primary-dark font-bold">{title}</h2>
+      <p class="text-secondary leading-relaxed">{description}</p>
+      {bullets.length > 0 && (
+        <ul class="flex flex-col gap-1 mt-1">
+          {bullets.map((b) => (
+            <li class="flex items-start gap-2 text-secondary text-sm">
+              <span class="text-primary mt-0.5 flex-shrink-0">&#10003;</span>
+              {b}
+            </li>
+          ))}
+        </ul>
+      )}
+      {price && (
+        <div class="mt-auto pt-3">
+          <span class="inline-block bg-primary text-white text-sm font-semibold px-3 py-1 rounded-full">
+            From ${price}
+          </span>
+        </div>
+      )}
+    </div>
+    <div class="flex-1 bg-gray-200 rounded-md overflow-clip">
+      <slot />
+    </div>
   </div>
 </div>
