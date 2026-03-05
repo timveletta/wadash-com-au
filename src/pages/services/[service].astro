@@ -1,26 +1,142 @@
 ---
 import type { GetStaticPaths } from "astro";
-import { render } from "astro:content";
-import { getCollection } from "astro:content";
+import { render, getCollection } from "astro:content";
+import { PhoneIcon } from "@heroicons/react/16/solid";
 
-import Layout from '../../layouts/Layout.astro';
+import Layout from "../../layouts/Layout.astro";
+import Contact from "../../components/Contact.astro";
+import WhyChoose from "../../components/WhyChoose.astro";
 
 export const getStaticPaths = (async () => {
-	const services = await getCollection('services')
-
-	console.log(services)
-
-	return services.map(service => ({
-		params: { service: service.id },
-		props: {service}
-	}))
+  const services = await getCollection("services");
+  return services.map((service) => ({
+    params: { service: service.id },
+    props: { service },
+  }));
 }) satisfies GetStaticPaths;
 
 const { service } = Astro.props;
 const { Content } = await render(service);
+
+const { title, description, image, price, bullets = [] } = service.data;
 ---
 
+<Layout title={`${title} Perth – WA Dash Plumbing & Gas`}>
+  <main class="bg-gray-200">
+    <!-- Hero -->
+    <div class="relative bg-tertiary md:pb-48">
+      <div
+        class="md:py-12 flex justify-center items-center md:flex-row flex-col"
+      >
+        <div
+          class="md:bg-white bg-gray-200 z-10 p-10 md:rounded-2xl max-w-xl md:min-w-md lg:-mr-24 md:-mr-36 md:mb-0 md:w-auto w-full"
+        >
+          <h1 class="text-montserrat lg:text-5xl text-4xl font-light">
+            {title}
+            <div class="font-extrabold text-primary">in a Dash.</div>
+          </h1>
+          {
+            description && (
+              <p class="text-lg text-secondary mt-4 leading-relaxed">
+                {description}
+              </p>
+            )
+          }
+          <div class="flex gap-2 mt-8">
+            <a
+              class="px-6 py-3 font-bold bg-primary hover:bg-primary-dark rounded-full text-white flex"
+              href="tel:+61402246252"
+            >
+              <PhoneIcon className="size-6 mr-2" /> 0402 246 252
+            </a>
+          </div>
+        </div>
 
-<Layout title={`${service.data.title} - WA Dash Plumbing and Gas`}>
-	<Content/>
+        {
+          image && (
+            <div class="md:max-w-3xl lg:-ml-24 md:-ml-36">
+              <img
+                src={`/${image}`}
+                alt={title}
+                class="md:rounded-2xl object-cover aspect-3/2 h-150 w-auto"
+              />
+            </div>
+          )
+        }
+      </div>
+
+      <div
+        class="hidden md:block absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none"
+      >
+        <svg
+          viewBox="0 0 1440 60"
+          preserveAspectRatio="none"
+          class="w-full h-64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,40 C360,0 1080,80 1440,40 L1440,60 L0,60 Z"
+            class="fill-gray-200"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="py-16 px-4">
+      <div class="container flex flex-col gap-16">
+        <div class="flex gap-6 items-stretch max-w-2xl mx-auto w-full">
+          <!-- Vertical title — hidden on mobile -->
+          <div class="hidden md:flex items-center justify-center shrink-0">
+            <p
+              class="text-primary font-bold text-montserrat text-3xl tracking-widest"
+              style="writing-mode: vertical-rl; transform: rotate(180deg);"
+            >
+              {title}
+            </p>
+          </div>
+
+          <!-- White content box -->
+          <div class="bg-white rounded-2xl p-10 flex flex-col gap-6 flex-1">
+            <div
+              class="flex flex-col gap-4 text-lg text-tertiary leading-relaxed"
+            >
+              <Content />
+            </div>
+
+            <!-- What's included — outside the box -->
+            {
+              bullets.length > 0 && (
+                <div class="max-w-2xl mx-auto w-full">
+                  <h2 class="text-2xl text-montserrat font-bold text-tertiary mb-4">
+                    What's included
+                  </h2>
+                  <ul class="flex flex-col gap-2">
+                    {bullets.map((b) => (
+                      <li class="flex items-start gap-3 text-secondary">
+                        <span class="text-primary mt-0.5 flex-shrink-0">
+                          &#10003;
+                        </span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            }
+
+            {
+              price && (
+                <span class="inline-block text-right text-primary text-xl font-bold">
+                  From ${price}
+                </span>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <WhyChoose />
+    <Contact />
+  </main>
 </Layout>

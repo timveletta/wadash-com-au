@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Contact from "../components/Contact.astro";
 
-import { PhoneIcon } from "@heroicons/react/16/solid";
 import Testimonials from "../components/Testimonials.astro";
+import WhyChoose from "../components/WhyChoose.astro";
+import { PhoneIcon } from "@heroicons/react/20/solid";
 ---
 
 <Layout title="About Us – WA Dash Plumbing & Gas">
@@ -77,47 +78,7 @@ import Testimonials from "../components/Testimonials.astro";
       </div>
     </div>
 
-    <div class="relative bg-gray-200 py-16 px-4">
-      <div class="py-12 flex justify-center items-center md:flex-row flex-col">
-        <div class="lg:-mr-12 md:-mr-18 z-10 hidden md:block shrink-0">
-          <img
-            src="/dash-christmas.jpg"
-            class="rounded-2xl object-cover aspect-square h-100 w-100"
-          />
-        </div>
-
-        <div
-          class="bg-white py-16 lg:pl-36 md:pl-48 pl-10 pr-10 rounded-3xl max-w-3xl md:min-w-md lg:-ml-12 md:-ml-18 md:mb-0"
-        >
-          <h1 class="text-montserrat lg:text-5xl text-4xl">
-            Why choose <span class="text-primary font-extrabold">WA Dash?</span>
-          </h1>
-          <div
-            class="text-lg leading-relaxed text-secondary py-6 font-sans flex flex-col gap-4"
-          >
-            <p>
-              Our licensed Perth plumbers and gas fitters specialise in
-              preventative maintenance, emergency plumbing, renovations,
-              compliance works, and long-term service contracts.
-            </p>
-            <p>
-              We work closely with government agencies, facility managers,
-              strata companies, and property managers to provide safe,
-              cost-effective plumbing and gas services that meet Australian
-              Standards, WHS requirements, and contractual obligations
-              throughout WA.
-            </p>
-          </div>
-          <div class="flex gap-2 mt-4">
-            <a
-              class="px-6 py-3 font-bold bg-primary hover:bg-primary-dark rounded-full text-white flex"
-              href="tel:+61402246252"
-              ><PhoneIcon className="size-6 mr-2" /> 0402 246 252</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+    <WhyChoose />
 
     <Testimonials />
     <Contact />
