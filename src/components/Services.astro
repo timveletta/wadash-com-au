@@ -1,6 +1,9 @@
 ---
 import { PhoneIcon } from "@heroicons/react/24/outline";
+import { getCollection } from "astro:content";
 import ServiceSection from "./ServiceSection.astro";
+
+const services = await getCollection("services");
 ---
 
 <div class="lg:px-12 px-2 py-16 bg-white">
@@ -30,84 +33,17 @@ import ServiceSection from "./ServiceSection.astro";
       </div>
     </div>
     <div class="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-4">
-      <ServiceSection
-        title="Leaking Taps and Toilets"
-        description="Sink taps and toilet installation, servicing and replacement."
-        price="195"
-        href="/services/leaking-taps-and-toilets"
-        bullets={["Tap washer & cartridge replacement", "Toilet cistern repairs", "Mixer tap installation"]}
-      >
-        <img
-          src="leaking-tap.webp"
-          alt="Leaking tap repair Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
+      {services.map((service) => (
+        <ServiceSection
+          title={service.data.title}
+          description={service.data.description ?? ""}
+          price={service.data.price}
+          href={`/services/${service.id}`}
+          bullets={service.data.bullets ?? []}
+          image={service.data.image}
+          alt={`${service.data.title} Perth`}
         />
-      </ServiceSection>
-      <ServiceSection
-        title="Hot Water Systems"
-        description="Gas, electric and heat pump hot water systems."
-        price="950"
-        href="/services/hot-water-systems"
-        bullets={["Supply & installation", "Same-day replacements available", "All major brands serviced"]}
-      >
-        <img
-          src="hot-water-systems.webp"
-          alt="Hot water system installation Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
-        />
-      </ServiceSection>
-      <ServiceSection
-        title="Blocked Drains"
-        description="Pipe inspections, unblocking and repairs."
-        price="165"
-        href="/services/blocked-drains"
-        bullets={["CCTV pipe inspections", "High-pressure water jetting", "Root intrusion removal"]}
-      >
-        <img
-          src="blocked-drain.webp"
-          alt="Blocked drain clearing Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
-        />
-      </ServiceSection>
-      <ServiceSection
-        title="Gas Works"
-        description="Installation and maintenance of gas appliances and lines."
-        price="225"
-        href="/services/gas-works"
-        bullets={["Gas appliance installation", "Leak detection & repair", "New gas point installation"]}
-      >
-        <img
-          src="gas.jpg"
-          alt="Gas fitting and installation Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
-        />
-      </ServiceSection>
-      <ServiceSection
-        title="Water Filters"
-        description="Clean, great-tasting water straight from your tap."
-        price="515"
-        href="/services/water-filters"
-        bullets={["Under-sink & whole-house systems", "Filter cartridge replacements", "Water softener installation"]}
-      >
-        <img
-          src="water-filters.webp"
-          alt="Water filter installation Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
-        />
-      </ServiceSection>
-      <ServiceSection
-        title="Bathroom Renovations"
-        description="Complete bathroom plumbing working alongside your builder."
-        price="950"
-        href="/services/bathroom-renovations"
-        bullets={["Shower, bath & vanity rough-in and fit-off", "Works alongside your builder or tiler", "Ensuite and full bathroom renovations"]}
-      >
-        <img
-          src="bathroom-renovations.webp"
-          alt="Bathroom renovation plumbing Perth"
-          class="object-cover h-full w-full md:aspect-2/3 aspect-square" loading="lazy"
-        />
-      </ServiceSection>
+      ))}
     </div>
   </div>
 </div>
