@@ -47,7 +47,7 @@ const seoDataObject = {
   ],
 };
 
-const DEFAULT_DESCRIPTION = "Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today.";
+const DEFAULT_DESCRIPTION = "Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing and Gas today.";
 const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -70,7 +70,7 @@ const services = await getCollection("services");
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content="https://wadash.com.au/hero.webp" />
-    <meta property="og:site_name" content="WA Dash Plumbing & Gas" />
+    <meta property="og:site_name" content="WA Dash Plumbing and Gas" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
