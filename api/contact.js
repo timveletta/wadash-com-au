@@ -2,21 +2,56 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function formatMessage(name, phoneNumber, email, message) {
   return `
-	<h1>WADash.com.au Contact Form Submission</h1>
-	<p><strong>Name:</strong> ${name}</p>
-	<p><strong>Phone Number:</strong> ${phoneNumber}</p>
-	<p><strong>Email Address:</strong> ${email || "None"}</p>
-	<p><strong>Message:</strong> ${message}</p>
+    <h1>WADash.com.au Contact Form Submission</h1>
+    <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Phone Number:</strong> ${escapeHtml(phoneNumber)}</p>
+    <p><strong>Email Address:</strong> ${email ? escapeHtml(email) : "None"}</p>
+    <p><strong>Message:</strong> ${escapeHtml(message)}</p>
   `;
 }
 
 export default async function handler(request, response) {
-  const { name, phoneNumber, email, message } = JSON.parse(request.body);
+  let parsed;
   try {
-    const { data, error } = await resend.emails.send({
-      from: "WADash Contact <contact@velettaliwedding.com>",
+    parsed = JSON.parse(request.body);
+  } catch {
+    return response.status(400).json({ body: "Invalid request." });
+  }
+
+  const { name, phoneNumber, email, message } = parsed;
+
+  if (!name || !phoneNumber || !message) {
+    return response
+      .status(400)
+      .json({ body: "Name, phone number, and message are required." });
+  }
+
+  if (
+    name.length > 200 ||
+    phoneNumber.length > 50 ||
+    message.length > 5000 ||
+    (email && email.length > 200)
+  ) {
+    return response.status(400).json({ body: "Input exceeds maximum length." });
+  }
+
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return response.status(400).json({ body: "Invalid email address." });
+  }
+
+  try {
+    const { error } = await resend.emails.send({
+      from: "WADash Contact <contact@wadash.com.au>",
       to: ["admin@wadash.com.au"],
       subject: "WADash.com.au Contact Form Submission",
       html: formatMessage(name, phoneNumber, email, message),

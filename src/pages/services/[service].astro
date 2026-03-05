@@ -21,7 +21,7 @@ const { Content } = await render(service);
 const { title, description, image, price, bullets = [] } = service.data;
 ---
 
-<Layout title={`${title} Perth – WA Dash Plumbing & Gas`}>
+<Layout title={`${title} Perth – WA Dash Plumbing & Gas`} description={description}>
   <main class="bg-gray-200">
     <!-- Hero -->
     <div class="relative bg-tertiary md:pb-48">

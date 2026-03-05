@@ -8,6 +8,7 @@ import { getCollection } from "astro:content";
 
 export interface Props {
   title: string;
+  description?: string;
 }
 
 const seoDataObject = {
@@ -40,13 +41,14 @@ const seoDataObject = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
+      opens: "07:00",
       closes: "17:00",
     },
   ],
 };
 
-const { title } = Astro.props;
+const DEFAULT_DESCRIPTION = "Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today.";
+const { title, description = DEFAULT_DESCRIPTION } = Astro.props;
 
 const services = await getCollection("services");
 ---
@@ -59,23 +61,12 @@ const services = await getCollection("services");
     <link rel="icon" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <meta
-      name="description"
-      content="Trusted Perth plumbers for emergency repairs, gas fitting, hot water systems and maintenance. Fast, friendly service across Perth. Call WA Dash Plumbing & Gas today."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap"
-      />
-    </noscript>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://www.wadash.com.au/hero.webp" />
+    <meta property="og:site_name" content="WA Dash Plumbing & Gas" />
     <script
       type="application/ld+json"
       set:html={JSON.stringify(seoDataObject)}

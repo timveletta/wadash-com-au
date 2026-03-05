@@ -3,9 +3,11 @@ import React from "react";
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = React.useState(false);
   const [formError, setFormError] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
     const { name, phoneNumber, email, message } = event.target;
     try {
       const response = await fetch("/api/contact", {
@@ -24,6 +26,8 @@ export default function Contact() {
       }
     } catch (e) {
       setFormError(true);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -105,9 +109,10 @@ export default function Contact() {
       <div className="flex items-baseline">
         <button
           type="submit"
-          className="bg-primary-dark text-white font-bold px-4 py-2 rounded-lg hover:bg-primary"
+          disabled={isSubmitting}
+          className="bg-primary-dark text-white font-bold px-4 py-2 rounded-lg hover:bg-primary disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Send Message
+          {isSubmitting ? "Sending…" : "Send Message"}
         </button>
       </div>
     </form>
