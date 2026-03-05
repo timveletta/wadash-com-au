@@ -6,6 +6,7 @@ import { PhoneIcon } from "@heroicons/react/16/solid";
 import Layout from "../../layouts/Layout.astro";
 import Contact from "../../components/Contact.astro";
 import WhyChoose from "../../components/WhyChoose.astro";
+import PhotoCarousel from "../../components/PhotoCarousel.jsx";
 
 export const getStaticPaths = (async () => {
   const services = await getCollection("services");
@@ -18,7 +19,7 @@ export const getStaticPaths = (async () => {
 const { service } = Astro.props;
 const { Content } = await render(service);
 
-const { title, description, image, price, bullets = [] } = service.data;
+const { title, description, image, price, bullets = [], gallery = [] } = service.data;
 
 const serviceSchema = {
   "@context": "https://schema.org",
@@ -168,6 +169,7 @@ const serviceSchema = {
       </div>
     </div>
 
+    <PhotoCarousel client:visible images={gallery} title={title} />
     <WhyChoose />
     <Contact />
   </main>

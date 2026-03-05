@@ -13,6 +13,7 @@ const services = defineCollection({
     image: z.string().optional(),
     price: z.string().optional(),
     bullets: z.array(z.string()).optional(),
+    gallery: z.array(z.string()).optional(),
   }),
 });
 
