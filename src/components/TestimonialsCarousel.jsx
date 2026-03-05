@@ -66,7 +66,7 @@ export default function TestimonialsCarousel() {
   return (
     <div className="flex flex-col items-center gap-8 max-w-2xl mx-auto">
       <div className="relative w-full bg-gray-50 rounded-xl p-8 shadow-sm border border-gray-100 min-h-48 flex flex-col justify-between">
-        <div className="text-tertiary leading-relaxed text-base flex flex-col gap-3">
+        <div className="text-tertiary leading-relaxed text-lg flex flex-col gap-3">
           {review.text
             .split("\n")
             .filter((l) => l.trim())

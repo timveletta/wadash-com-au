@@ -51,7 +51,7 @@ export default async function handler(request, response) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "WADash Contact <contact@wadash.com.au>",
+      from: "WADash Contact <contact@timveletta.com>",
       to: ["admin@wadash.com.au"],
       subject: "WADash.com.au Contact Form Submission",
       html: formatMessage(name, phoneNumber, email, message),
