@@ -55,6 +55,7 @@ export default async function handler(request, response) {
       to: ["admin@wadash.com.au"],
       subject: "WADash.com.au Contact Form Submission",
       html: formatMessage(name, phoneNumber, email, message),
+      ...(email && { reply_to: email }),
     });
 
     if (error) {
