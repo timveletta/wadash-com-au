@@ -7,14 +7,15 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build && wrangler dev",
+    "deploy": "astro build && wrangler deploy",
+    "cf-typegen": "wrangler types",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/vercel": "^9.0.2",
     "@fontsource-variable/montserrat": "^5.2.8",
     "@fontsource-variable/open-sans": "^5.2.7",
     "@fontsource/montserrat": "^5.2.8",
@@ -31,6 +32,15 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "tailwind-clip-path": "^1.0.0"
+    "@types/node": "^26.6.6",
+    "tailwind-clip-path": "^1.0.0",
+    "wrangler": "^4.50.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
   }
 }
